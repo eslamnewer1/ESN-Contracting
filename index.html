@@ -54,17 +54,16 @@
             font-weight:700;
             transition: 0.3s;
         }
-        .lang-btn:hover { transform: scale(1.05); }
 
         .hero {
             background: linear-gradient(135deg, #001a33, #004b8d);
             color:white;
             padding:120px 8% 80px;
             text-align:center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
         }
 
-        .hero h1 { font-size:clamp(32px,5vw,54px); margin-bottom:15px; text-transform: uppercase; letter-spacing: 1px; }
+        .hero h1 { font-size:clamp(32px, 5vw, 54px); margin-bottom:15px; text-transform: uppercase; }
         .hero p { max-width:850px; margin:auto; opacity:0.9; font-size: 1.1rem; }
 
         .container { max-width:1200px; margin:auto; padding:60px 5%; }
@@ -73,17 +72,14 @@
             text-align:center;
             font-size:32px;
             margin-bottom:40px;
-            position:relative;
             color: var(--primary);
         }
 
         .section-title::after {
             content:"";
-            width:70px;
-            height:4px;
+            width:70px; height:4px;
             background:var(--secondary);
-            display:block;
-            margin:12px auto;
+            display:block; margin:12px auto;
         }
 
         .box {
@@ -98,7 +94,7 @@
 
         .grid {
             display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(320px, 1fr));
+            grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
             gap:25px;
         }
 
@@ -107,28 +103,24 @@
             padding:30px;
             border-radius:12px;
             border-bottom:4px solid var(--secondary);
-            transition:0.3s;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: 0.3s;
         }
+        .card:hover { transform: translateY(-5px); }
 
-        .card:hover { transform:translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.08); }
-        .card h4 { color:var(--primary); margin-bottom:15px; font-size: 1.2rem; }
+        .card h4 { color:var(--primary); margin-bottom:15px; }
         .card ul { list-style: none; }
-        .card li { margin-bottom: 8px; position: relative; padding-left: 20px; font-size: 0.95rem; color: var(--gray); }
+        .card li { margin-bottom: 8px; position: relative; padding-left: 20px; color: var(--gray); font-size: 0.95rem; }
         [lang="ar"] .card li { padding-left: 0; padding-right: 20px; }
-        .card li::before { content: "•"; color: var(--secondary); font-weight: bold; position: absolute; left: 0; }
+        .card li::before { content: "•"; color: var(--secondary); position: absolute; left: 0; font-weight: bold; }
         [lang="ar"] .card li::before { left: auto; right: 0; }
 
         .stats-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
+            display: flex; justify-content: center; gap: 40px; margin-bottom: 50px; flex-wrap: wrap;
         }
         .stat-item { text-align: center; }
         .stat-val { display: block; font-size: 2.5rem; font-weight: 900; color: var(--primary); }
-        .stat-label { color: var(--gray); font-size: 0.9rem; text-transform: uppercase; font-weight: 700; }
+        .stat-label { color: var(--gray); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; }
 
         footer {
             background:var(--dark);
@@ -137,8 +129,6 @@
             padding:50px;
             margin-top:50px;
         }
-
-        .highlight { color: var(--secondary); font-weight: bold; }
     </style>
 </head>
 
@@ -146,104 +136,133 @@
 
 <header>
     <a href="#" class="logo">ESN<span>.</span></a>
-    <button class="lang-btn" onclick="toggleLanguage()" id="btn">النسخة العربية</button>
+    <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-btn">النسخة العربية</button>
 </header>
 
-<div id="en">
+<div id="content-en">
     <section class="hero">
         <h1>ESN For Integrated Contracting</h1>
-        <p>Integrated Contracting & Engineering Management</p>
+        <p>Comprehensive Construction & Engineering Management Solutions</p>
     </section>
 
     <div class="container">
         <div class="stats-grid">
             <div class="stat-item"><span class="stat-val">2012</span><span class="stat-label">Established</span></div>
             <div class="stat-item"><span class="stat-val">60+</span><span class="stat-label">Projects</span></div>
-            <div class="stat-item"><span class="stat-val">80M+</span><span class="stat-label">EGP Managed</span></div>
+            <div class="stat-item"><span class="stat-val">80M+</span><span class="stat-label">Value (EGP)</span></div>
         </div>
 
-        <h2 class="section-title">Who We Are</h2>
+        <h2 class="section-title">About ESN</h2>
         <div class="box">
-            <p>Established in 2012, <span class="highlight">ESN For Integrated Contracting</span> is an integrated contracting and engineering management firm specialized in delivering comprehensive construction solutions across all project phases — from planning and technical coordination to execution and final handover.</p>
-            <br>
-            <p>Originating from the professional practice of <span class="highlight">Eng. Eslam Sobhy Nower</span> Integrated Contracting Office, the firm has developed through more than a decade of practical construction experience, successfully managing and delivering over 60 projects across residential, commercial, administrative, educational, governmental, and public service sectors.</p>
+            <p>Established in 2012, <strong>ESN For Integrated Contracting</strong> is a professional engineering firm specialized in delivering end-to-end construction solutions. Originating from the expertise of <strong>Eng. Eslam Sobhy Nower</strong>, we have managed 60+ projects across residential, commercial, and governmental sectors.</p>
         </div>
 
-        <h2 class="section-title">Core Business & Services</h2>
+        <h2 class="section-title">Our Services</h2>
         <div class="grid">
             <div class="card">
-                <h4>Construction & Engineering</h4>
+                <h4>Construction & Finishing</h4>
                 <ul>
-                    <li>Construction & Structural Works</li>
-                    <li>Renovation & Structural Strengthening</li>
-                    <li>Development & Rehabilitation Projects</li>
-                    <li>Interior & Exterior Finishing Works</li>
-                    <li>Commercial & Administrative Fit-Out Works</li>
+                    <li>Structural & Concrete Works</li>
+                    <li>Renovation & Strengthening</li>
+                    <li>Interior & Exterior Finishing</li>
+                    <li>Commercial Fit-Out</li>
                 </ul>
             </div>
             <div class="card">
-                <h4>Management & Technical</h4>
+                <h4>Technical Office</h4>
                 <ul>
-                    <li>Integrated Project Execution & PM</li>
-                    <li>Technical Office Management</li>
-                    <li>Quantity Surveying & Cost Control</li>
+                    <li>Quantity Surveying (QS)</li>
                     <li>Shop Drawings & Documentation</li>
-                    <li>Tendering, Contracts & Procurement</li>
-                    <li>Site Supervision & Execution Management</li>
+                    <li>Cost Control & Tendering</li>
+                    <li>Site Supervision</li>
                 </ul>
             </div>
-        </div>
-
-        <h2 class="section-title">Advanced Workflows</h2>
-        <div class="box" style="border-left-color: var(--secondary);">
-            <p>In parallel with its construction expertise, the company adopts advanced engineering workflows and digital construction technologies through <span class="highlight">Revit, Navisworks, Dynamo, and BIM-based coordination</span> processes to enhance technical integration, execution quality, clash detection, and project delivery performance.</p>
-        </div>
-
-        <h2 class="section-title">Experience & Sectors</h2>
-        <div class="grid">
-            <div class="card"><h4>Education</h4><p>Extensive experience in executing educational facilities and upgrades.</p></div>
-            <div class="card"><h4>Public & Government</h4><p>Infrastructural and governmental service buildings delivery.</p></div>
-            <div class="card"><h4>Residential & Commercial</h4><p>Developments, administrative projects, and fit-out works.</p></div>
+            <div class="card">
+                <h4>Digital Engineering</h4>
+                <ul>
+                    <li>BIM Workflows (Revit/Navisworks)</li>
+                    <li>Clash Detection</li>
+                    <li>Digital Coordination</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
 
-<div id="ar" style="display:none;">
+<div id="content-ar" style="display:none;">
     <section class="hero">
         <h1>ESN للمقاولات المتكاملة</h1>
-        <p>للمقاولات المتكاملة والإدارة الهندسية</p>
+        <p>حلول هندسية وإنشائية متكاملة من الفكرة حتى التسليم</p>
     </section>
 
     <div class="container">
         <div class="stats-grid">
-            <div class="stat-item"><span class="stat-val">2012</span><span class="stat-label">تأسست عام</span></div>
+            <div class="stat-item"><span class="stat-val">2012</span><span class="stat-label">تاريخ التأسيس</span></div>
             <div class="stat-item"><span class="stat-val">60+</span><span class="stat-label">مشروع مُنفذ</span></div>
-            <div class="stat-item"><span class="stat-val">80M+</span><span class="stat-label">جنيه حجم الأعمال</span></div>
+            <div class="stat-item"><span class="stat-val">80M+</span><span class="stat-label">قيمة الأعمال</span></div>
         </div>
 
         <h2 class="section-title">من نحن</h2>
         <div class="box">
-            <p>تأسست شركة <span class="highlight">ESN للمقاولات المتكاملة</span> عام 2012، كشركة متخصصة في المقاولات المتكاملة والإدارة الهندسية، تقدم حلولًا إنشائية وتنفيذية شاملة تغطي جميع مراحل المشروع بدايةً من التخطيط والتنسيق الفني وحتى التنفيذ والتسليم النهائي.</p>
-            <br>
-            <p>انطلقت الشركة من الخبرة العملية لمكتب <span class="highlight">المهندس إسلام صبحي نوير</span> للمقاولات المتكاملة، واستطاعت على مدار أكثر من عقد من العمل الميداني تنفيذ وإدارة أكثر من 60 مشروعًا في قطاعات متنوعة تشمل المشروعات السكنية والتجارية والإدارية والتعليمية والحكومية.</p>
+            <p>تأسست شركة <strong>ESN للمقاولات المتكاملة</strong> عام 2012 ككيان هندسي متخصص. انطلقت الشركة من الخبرة الميدانية لـ <strong>المهندس إسلام صبحي نوير</strong>، لتقدم حلولاً شاملة تشمل التخطيط، الإدارة الفنية، والتنفيذ الميداني بأعلى المعايير.</p>
         </div>
 
-        <h2 class="section-title">النشاط الرئيسي والخدمات</h2>
+        <h2 class="section-title">خدماتنا الرئيسية</h2>
         <div class="grid">
             <div class="card">
-                <h4>الأعمال الإنشائية والهندسية</h4>
+                <h4>الأعمال الإنشائية والترميم</h4>
                 <ul>
-                    <li>أعمال الإنشاءات والهيكل الخرساني</li>
-                    <li>أعمال الترميمات والتدعيم الإنشائي</li>
-                    <li>أعمال التطوير وإعادة التأهيل ورفع الكفاءة</li>
-                    <li>أعمال التشطيبات الداخلية والخارجية بجميع أنواعها</li>
-                    <li>أعمال الـ Fit-Out للمشروعات التجارية والإدارية</li>
+                    <li>أعمال الإنشاءات والهياكل الخرسانية</li>
+                    <li>الترميم والتدعيم الإنشائي للمباني</li>
+                    <li>أعمال التشطيبات الداخلية والخارجية</li>
+                    <li>تجهيزات الـ Fit-Out للمشاريع التجارية</li>
                 </ul>
             </div>
             <div class="card">
-                <h4>الإدارة والمكتب الفني</h4>
+                <h4>المكتب الفني والإدارة</h4>
                 <ul>
-                    <li>إدارة وتنفيذ المشروعات المتكاملة</li>
-                    <li>إدارة المكاتب الفنية والتنسيق الهندسي</li>
-                    <li>حصر الكميات وإدارة التكاليف</li>
-                    <li>إ
+                    <li>حصر الكميات وإدارة التكاليف بدقة</li>
+                    <li>إعداد المخططات التنفيذية Shop Drawings</li>
+                    <li>إدارة المناقصات والعقود والمشتريات</li>
+                    <li>الإشراف الميداني وإدارة التنفيذ</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>الهندسة الرقمية (BIM)</h4>
+                <ul>
+                    <li>نمذجة معلومات المباني (Revit)</li>
+                    <li>تنسيق المشروعات و Navisworks</li>
+                    <li>حل التعارضات الفنية رقمياً</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>ESN For Integrated Contracting © 2026</p>
+</footer>
+
+<script>
+function toggleLanguage(){
+    const html = document.getElementById("html-tag");
+    const en = document.getElementById("content-en");
+    const ar = document.getElementById("content-ar");
+    const btn = document.getElementById("lang-toggle-btn");
+
+    if(html.getAttribute('lang') === "en"){
+        html.setAttribute('lang', 'ar');
+        en.style.display = "none";
+        ar.style.display = "block";
+        btn.innerText = "English Version";
+    } else {
+        html.setAttribute('lang', 'en');
+        en.style.display = "block";
+        ar.style.display = "none";
+        btn.innerText = "النسخة العربية";
+    }
+}
+</script>
+
+</body>
+</html>
