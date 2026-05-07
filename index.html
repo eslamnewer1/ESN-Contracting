@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESN For Integrated Contracting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep: #0d0d12;
+            --pink: #ff2d78;
+            --cyan: #00e5ff;
+            --amber: #ffb300;
+            --white: #f0eeff;
+            --muted: #8b7fa8;
+            --card-bg: rgba(255,255,255,0.03);
+            --card-border: rgba(255,255,255,0.08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--deep); color: var(--white); font-family: 'DM Sans', sans-serif; transition: all 0.3s ease; }
+        
+        /* Language Toggle Button */
+        .lang-switcher {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 2000;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--pink), #c0008f);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(255, 45, 120, 0.3);
+            font-family: 'Syne', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Nav */
+        nav { padding: 25px 5%; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 28px; background: linear-gradient(90deg, var(--pink), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Sections */
+        section { padding: 80px 8%; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-family: 'Syne', sans-serif; font-size: clamp(28px, 4vw, 48px); margin-bottom: 30px; line-height: 1.1; }
+        .highlight { color: var(--cyan); }
+        .desc { font-size: 18px; color: var(--muted); line-height: 1.8; margin-bottom: 40px; }
+
+        /* Grid System */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--card-bg); border: 1px solid var(--card-border); padding: 35px; border-radius: 20px; transition: 0.3s; }
+        .card:hover { border-color: var(--pink); transform: translateY(-5px); }
+        .card h3 { font-family: 'Syne', sans-serif; margin-bottom: 15px; color: var(--white); }
+        .card p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+
+        /* Arabic Override */
+        [lang="ar"] body { font-family: 'Noto Kufi Arabic', sans-serif; text-align: right; }
+        [lang="ar"] .lang-switcher { right: auto; left: 25px; }
+
+        footer { text-align: center; padding: 50px; border-top: 1px solid var(--card-border); color: var(--muted); font-size: 14px; }
+        
+        /* Icon Simulation */
+        .icon-box { width: 50px; height: 50px; background: rgba(0, 229, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; color: var(--cyan); }
+    </style>
+</head>
+<body id="main-body">
+
+<button class="lang-switcher" onclick="toggleLang()" id="langBtn">العربية</button>
+
+<nav>
+    <div class="logo">ESN</div>
+</nav>
+
+<div id="content-en">
+    <section>
+        <h1 class="section-title">ESN For <span class="highlight">Integrated Contracting</span> & Engineering Management</h1>
+        <p class="desc">Established in 2012, delivering comprehensive construction solutions through over a decade of practical experience, with over 60 projects valued at EGP 80M+.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box">🏗️</div>
+                <h3>Construction & Structural</h3>
+                <p>Full execution of structural works, renovation, and strengthening for residential and commercial sectors.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box">💻</div>
+                <h3>BIM Coordination</h3>
+                <p>Advanced engineering workflows using Revit, Navisworks, and Dynamo to ensure zero clash delivery.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box">📊</div>
+                <h3>Technical Office</h3>
+                <p>Expert quantity surveying, cost control, and procurement management under modern engineering standards.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="content-ar" style="display: none;" dir="rtl">
+    <section>
+        <h1 class="section-title">ESN لـ <span class="highlight">المقاولات المتكاملة</span> والإدارة الهندسية</h1>
+        <p class="desc">تأسست عام 2012، نقدم حلولاً إنشائية شاملة من خلال عقد من الخبرة الميدانية، بتنفيذ أكثر من 60 مشروعاً بقيمة تجاوزت 80 مليون جنيه مصري.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box">🏗️</div>
+                <h3>الإنشاءات والهيكل الخرساني</h3>
+                <p>تنفيذ متكامل لأعمال الهيكل، الترميم، والتدعيم الإنشائي للقطاعات السكنية والتجارية.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box">💻</div>
+                <h3>تنسيق الـ BIM</h3>
+                <p>نعتمد أحدث الحلول الرقمية باستخدام Revit و Navisworks لضمان جودة التنفيذ وتقليل التعارضات الفنية.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box">📊</div>
+                <h3>المكتب الفني</h3>
+                <p>إدارة احترافية لحصر الكميات، مراقبة التكاليف، وإعداد المخططات التنفيذية بدقة عالية.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>© 2026 ESN For Integrated Contracting · Founded by Eng. Eslam Newer</p>
+</footer>
+
+<script>
+    function toggleLang() {
+        const en = document.getElementById('content-en');
+        const ar = document.getElementById('content-ar');
+        const btn = document.getElementById('langBtn');
+        const body = document.getElementById('main-body');
+
+        if (en.style.display === 'none') {
+            en.style.display = 'block';
+            ar.style.display = 'none';
+            btn.innerText = 'العربية';
+            body.setAttribute('lang', 'en');
+        } else {
+            en.style.display = 'none';
+            ar.style.display = 'block';
+            btn.innerText = 'English';
+            body.setAttribute('lang', 'ar');
+        }
+    }
+</script>
+
+</body>
+</html>
