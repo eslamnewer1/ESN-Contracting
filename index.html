@@ -4,265 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESN For Integrated Contracting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #003366;
-            --secondary: #00a8e8;
-            --light: #f4f7f6;
+            --primary: #002b5c;
+            --secondary: #0088cc;
+            --accent: #f39c12;
+            --bg-light: #f9fbfc;
             --white: #ffffff;
-            --dark: #1a1a1a;
-            --gray: #6c757d;
+            --text-main: #2c3e50;
+            --text-muted: #546e7a;
         }
 
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.8;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg-light); color: var(--text-main); line-height: 1.8; }
+        [lang="ar"] body { font-family: 'Tajawal', sans-serif; direction: rtl; text-align: right; }
 
-        [lang="ar"] body {
-            font-family: 'Tajawal', sans-serif;
-            direction: rtl;
-            text-align: right;
-        }
-
+        /* Navigation */
         header {
             background: var(--white);
-            padding: 18px 8%;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            position:sticky;
-            top:0;
-            z-index:1000;
-            box-shadow:0 4px 12px rgba(0,0,0,0.05);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
-
-        .logo { font-size:28px; font-weight:900; color:var(--primary); text-decoration:none; }
-        .logo span { color:var(--secondary); }
+        .logo { font-size: 30px; font-weight: 900; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--secondary); }
 
         .lang-btn {
-            padding:10px 18px;
-            border:none;
-            border-radius:6px;
-            cursor:pointer;
-            background:linear-gradient(135deg,var(--primary),var(--secondary));
-            color:white;
-            font-weight:700;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
             transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
         }
 
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #001a33, #004b8d);
-            color:white;
-            padding:120px 8% 80px;
-            text-align:center;
-            clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+            background: linear-gradient(rgba(0,43,92,0.85), rgba(0,43,92,0.85)), url('https://images.unsplash.com/photo-1541913051-1118f0a6722c?auto=format&fit=crop&q=80&w=2070') center/cover;
+            color: white;
+            padding: 140px 8% 100px;
+            text-align: center;
+            border-bottom: 8px solid var(--secondary);
         }
+        .hero h1 { font-size: clamp(34px, 5vw, 60px); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        .hero p { font-size: 20px; max-width: 900px; margin: 0 auto; opacity: 0.95; font-weight: 500; }
 
-        .hero h1 { font-size:clamp(32px, 5vw, 54px); margin-bottom:15px; text-transform: uppercase; }
-        .hero p { max-width:850px; margin:auto; opacity:0.9; font-size: 1.1rem; }
-
-        .container { max-width:1200px; margin:auto; padding:60px 5%; }
-
-        .section-title {
-            text-align:center;
-            font-size:32px;
-            margin-bottom:40px;
-            color: var(--primary);
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: -60px;
+            padding: 0 8%;
+            flex-wrap: wrap;
         }
-
-        .section-title::after {
-            content:"";
-            width:70px; height:4px;
-            background:var(--secondary);
-            display:block; margin:12px auto;
+        .stat-box {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 260px;
+            border-top: 5px solid var(--secondary);
         }
+        .stat-box h3 { font-size: 40px; color: var(--primary); margin-bottom: 5px; font-weight: 900; }
+        .stat-box p { font-size: 14px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
 
-        .box {
-            background:white;
-            padding:40px;
-            border-radius:14px;
-            box-shadow:0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-            border-left: 5px solid var(--primary);
+        .container { max-width: 1200px; margin: 0 auto; padding: 80px 5%; }
+
+        /* About Section */
+        .content-box {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+            border-inline-start: 10px solid var(--primary);
         }
-        [lang="ar"] .box { border-left: none; border-right: 5px solid var(--primary); }
+        .section-header { font-size: 32px; color: var(--primary); margin-bottom: 30px; display: flex; align-items: center; gap: 15px; }
+        .section-header::after { content: ''; flex: 1; height: 2px; background: #eee; }
 
-        .grid {
-            display:grid;
-            grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-            gap:25px;
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .service-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid #edf2f7;
+            transition: 0.4s;
+            position: relative;
         }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--secondary); }
+        .service-card h4 { color: var(--primary); margin-bottom: 20px; font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .service-card ul { list-style: none; }
+        .service-card li { margin-bottom: 12px; font-size: 15px; color: var(--text-muted); position: relative; padding-inline-start: 25px; }
+        .service-card li::before { content: '✔'; position: absolute; inset-inline-start: 0; color: var(--secondary); font-weight: bold; }
 
-        .card {
-            background:white;
-            padding:30px;
-            border-radius:12px;
-            border-bottom:4px solid var(--secondary);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); }
+        /* Footer */
+        footer { background: var(--primary); color: white; padding: 80px 8% 40px; text-align: center; }
+        .footer-tagline { font-size: 18px; margin-bottom: 20px; opacity: 0.8; }
+        .copyright { font-size: 14px; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; }
 
-        .card h4 { color:var(--primary); margin-bottom:15px; }
-        .card ul { list-style: none; }
-        .card li { margin-bottom: 8px; position: relative; padding-left: 20px; color: var(--gray); font-size: 0.95rem; }
-        [lang="ar"] .card li { padding-left: 0; padding-right: 20px; }
-        .card li::before { content: "•"; color: var(--secondary); position: absolute; left: 0; font-weight: bold; }
-        [lang="ar"] .card li::before { left: auto; right: 0; }
-
-        .stats-grid {
-            display: flex; justify-content: center; gap: 40px; margin-bottom: 50px; flex-wrap: wrap;
-        }
-        .stat-item { text-align: center; }
-        .stat-val { display: block; font-size: 2.5rem; font-weight: 900; color: var(--primary); }
-        .stat-label { color: var(--gray); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; }
-
-        footer {
-            background:var(--dark);
-            color:white;
-            text-align:center;
-            padding:50px;
-            margin-top:50px;
-        }
+        /* Animation */
+        .fade-in { animation: fadeIn 0.8s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-
 <body>
 
-<header>
-    <a href="#" class="logo">ESN<span>.</span></a>
-    <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-btn">النسخة العربية</button>
-</header>
+    <header>
+        <a href="#" class="logo">ESN<span>.</span></a>
+        <button class="lang-btn" onclick="toggleLanguage()" id="lang-btn">النسخة العربية</button>
+    </header>
 
-<div id="content-en">
-    <section class="hero">
-        <h1>ESN For Integrated Contracting</h1>
-        <p>Comprehensive Construction & Engineering Management Solutions</p>
-    </section>
+    <div id="content-en" class="fade-in">
+        <section class="hero">
+            <h1>ESN For <span style="color:var(--secondary)">Integrated</span> Contracting</h1>
+            <p>Integrated Contracting & Engineering Management delivering reliable, high-quality, and execution-driven solutions.</p>
+        </section>
 
-    <div class="container">
-        <div class="stats-grid">
-            <div class="stat-item"><span class="stat-val">2012</span><span class="stat-label">Established</span></div>
-            <div class="stat-item"><span class="stat-val">60+</span><span class="stat-label">Projects</span></div>
-            <div class="stat-item"><span class="stat-val">80M+</span><span class="stat-label">Value (EGP)</span></div>
+        <div class="stats">
+            <div class="stat-box"><h3>2012</h3><p>Established Year</p></div>
+            <div class="stat-box"><h3>60+</h3><p>Successful Projects</p></div>
+            <div class="stat-box"><h3>80M+</h3><p>EGP Project Value</p></div>
         </div>
 
-        <h2 class="section-title">About ESN</h2>
-        <div class="box">
-            <p>Established in 2012, <strong>ESN For Integrated Contracting</strong> is a professional engineering firm specialized in delivering end-to-end construction solutions. Originating from the expertise of <strong>Eng. Eslam Sobhy Nower</strong>, we have managed 60+ projects across residential, commercial, and governmental sectors.</p>
-        </div>
-
-        <h2 class="section-title">Our Services</h2>
-        <div class="grid">
-            <div class="card">
-                <h4>Construction & Finishing</h4>
-                <ul>
-                    <li>Structural & Concrete Works</li>
-                    <li>Renovation & Strengthening</li>
-                    <li>Interior & Exterior Finishing</li>
-                    <li>Commercial Fit-Out</li>
-                </ul>
+        <div class="container">
+            <div class="content-box">
+                <h2 class="section-header">About ESN</h2>
+                <p>Established in 2012, <strong>ESN For Integrated Contracting</strong> is an integrated contracting and engineering management firm specialized in delivering comprehensive construction solutions across all project phases — from planning and technical coordination to execution and final handover.</p>
+                <br>
+                <p>Originating from the professional practice of <strong>Eng. Eslam Sobhy Nower</strong> Integrated Contracting Office, the firm has developed through more than a decade of practical construction experience, successfully managing and delivering over 60 projects across residential, commercial, administrative, educational, governmental, and public service sectors.</p>
             </div>
-            <div class="card">
-                <h4>Technical Office</h4>
-                <ul>
-                    <li>Quantity Surveying (QS)</li>
-                    <li>Shop Drawings & Documentation</li>
-                    <li>Cost Control & Tendering</li>
-                    <li>Site Supervision</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h4>Digital Engineering</h4>
-                <ul>
-                    <li>BIM Workflows (Revit/Navisworks)</li>
-                    <li>Clash Detection</li>
-                    <li>Digital Coordination</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div id="content-ar" style="display:none;">
-    <section class="hero">
-        <h1>ESN للمقاولات المتكاملة</h1>
-        <p>حلول هندسية وإنشائية متكاملة من الفكرة حتى التسليم</p>
-    </section>
-
-    <div class="container">
-        <div class="stats-grid">
-            <div class="stat-item"><span class="stat-val">2012</span><span class="stat-label">تاريخ التأسيس</span></div>
-            <div class="stat-item"><span class="stat-val">60+</span><span class="stat-label">مشروع مُنفذ</span></div>
-            <div class="stat-item"><span class="stat-val">80M+</span><span class="stat-label">قيمة الأعمال</span></div>
-        </div>
-
-        <h2 class="section-title">من نحن</h2>
-        <div class="box">
-            <p>تأسست شركة <strong>ESN للمقاولات المتكاملة</strong> عام 2012 ككيان هندسي متخصص. انطلقت الشركة من الخبرة الميدانية لـ <strong>المهندس إسلام صبحي نوير</strong>، لتقدم حلولاً شاملة تشمل التخطيط، الإدارة الفنية، والتنفيذ الميداني بأعلى المعايير.</p>
-        </div>
-
-        <h2 class="section-title">خدماتنا الرئيسية</h2>
-        <div class="grid">
-            <div class="card">
-                <h4>الأعمال الإنشائية والترميم</h4>
-                <ul>
-                    <li>أعمال الإنشاءات والهياكل الخرسانية</li>
-                    <li>الترميم والتدعيم الإنشائي للمباني</li>
-                    <li>أعمال التشطيبات الداخلية والخارجية</li>
-                    <li>تجهيزات الـ Fit-Out للمشاريع التجارية</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h4>المكتب الفني والإدارة</h4>
-                <ul>
-                    <li>حصر الكميات وإدارة التكاليف بدقة</li>
-                    <li>إعداد المخططات التنفيذية Shop Drawings</li>
-                    <li>إدارة المناقصات والعقود والمشتريات</li>
-                    <li>الإشراف الميداني وإدارة التنفيذ</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h4>الهندسة الرقمية (BIM)</h4>
-                <ul>
-                    <li>نمذجة معلومات المباني (Revit)</li>
-                    <li>تنسيق المشروعات و Navisworks</li>
-                    <li>حل التعارضات الفنية رقمياً</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>ESN For Integrated Contracting © 2026</p>
-</footer>
-
-<script>
-function toggleLanguage(){
-    const html = document.getElementById("html-tag");
-    const en = document.getElementById("content-en");
-    const ar = document.getElementById("content-ar");
-    const btn = document.getElementById("lang-toggle-btn");
-
-    if(html.getAttribute('lang') === "en"){
-        html.setAttribute('lang', 'ar');
-        en.style.display = "none";
-        ar.style.display = "block";
-        btn.innerText = "English Version";
-    } else {
-        html.setAttribute('lang', 'en');
-        en.style.display = "block";
-        ar.style.display = "none";
-        btn.innerText = "النسخة العربية";
-    }
-}
-</script>
-
-</body>
-</html>
+            <h2 class="section-header">Core Business & Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>🏗️ Construction & Execution</h4>
+                    <ul>
+                        <li>Construction & Structural Works</li>
+                        <li>Renovation & Structural Strengthening</li>
+                        <li>Development & Rehabilitation Projects</li>
+                        <li>Interior & Exterior Finishing Works</li>
+                        <li>Commercial & Administrative Fit-Out Works</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h4>📊 Technical & Management</h4>
+                    <ul>
+                        <li>Integrated Project Execution & Management</li>
+                        <li>Technical Office Management</li>
+                        <li>Quantity Surveying & Cost Control</li>
+                        <li>Shop Drawings & Construction Documentation</li>
+                        <li>Tendering, Contracts & Procurement Support</li>
